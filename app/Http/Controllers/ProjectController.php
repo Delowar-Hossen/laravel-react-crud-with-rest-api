@@ -14,8 +14,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
+		/* get project data */
         $projects = Project::get();
- 
         return response()->json($projects);
     }
  
@@ -27,6 +27,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+		/* store project data */
         $project = new Project();
         $project->name = $request->name;
         $project->description = $request->description;
@@ -43,6 +44,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
+		/* show project data */
         $project = Project::find($id);
         return response()->json($project);
     }
@@ -56,6 +58,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+		/* update project data */
         $project = Project::find($id);
         $project->name = $request->name;
         $project->description = $request->description;
@@ -72,6 +75,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+		/* remove project data */
         Project::destroy($id);
  
         return response()->json(['message' => 'Deleted']);
